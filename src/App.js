@@ -1,39 +1,42 @@
-import { useContext, useEffect } from "react";
-import ItemsList from "./components/ItemsList";
+import { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
-import Kontext from "./store/context";
+import { Link } from "react-router-dom";
+import ProductItem from "./components/ProductItem";
 import AddItemForm from "./components/AddItemForm";
 import DetailPage from "./components/DetailPage";
+import Kontext from "./store/context";
+import EditItemForm from "./components/EditItemForm";
 
 function App() {
-  // const [id, setId] = useState("");
   const ctx = useContext(Kontext);
 
-  const loadItems = ctx.loadItems;
+  const removeItem = (id) => {
+    ctx.removeItem(id);
+  };
 
-  useEffect(() => {
-    const ucitajPodatke = async () => {
-      const response = await fetch("https://dummyjson.com/products");
-      const data = await response.json();
-      console.log(data);
-
-      loadItems(data.products);
-    };
-
-    ucitajPodatke();
-  }, []);
-
-  // const onViewDetailsHandler = (id) => {
-  //   setId(id);
-  // };
+  const lista = (
+    <div>
+      <ul>
+        {ctx.items.map((item) => (
+          <ProductItem
+            onRemoveItemHandler={removeItem}
+            key={item.id}
+            item={item}
+          />
+        ))}
+      </ul>
+      <Link to="/product/add">
+        <button>Dodaj proizvod</button>
+      </Link>
+    </div>
+  );
 
   return (
     <Routes>
-      <Route path={"/"} element={<ItemsList />} />
-      <Route path={"/product/add"} element={<AddItemForm />} />
-
+      <Route path={"/"} element={lista} />
       <Route path={"/product/:id"} element={<DetailPage />} />
+      <Route path={"/product/edit/:id"} element={<EditItemForm />} />
+      <Route path={"/product/add"} element={<AddItemForm />} />
     </Routes>
   );
 }

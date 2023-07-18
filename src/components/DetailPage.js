@@ -1,47 +1,40 @@
 import { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Kontext from "../store/context";
 
 const DetailPage = () => {
   const { id } = useParams();
   const ctx = useContext(Kontext);
+  const navigate = useNavigate();
 
   const DetailItem = ctx.items.filter(
     (item) => item.id.toString() === id.toString()
   );
-  console.log(DetailItem);
-  // console.log(ctx.items);
 
   return (
     <div>
-      <p>aaaa</p>
-      {/* {ctx.items.map((item) => (item.id === id ? <p>{item.name}</p> : ""))} */}
+      {DetailItem.map((item) => (
+        <div>
+          <p>{item.price}</p>
+          <p>{item.title}</p>
+          <p>{item.brand}</p>
+          <p>{item.category} </p>
+          <p>{item.description} </p>
+          <p>{item.discountPercentage} </p>
+          <p>{item.price} </p>
+          <p>{item.rating} </p>
+          <p>{item.stock} </p>
+        </div>
+      ))}
+      <button
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        Go back
+      </button>
     </div>
   );
 };
 
 export default DetailPage;
-
-/* <div>
-<p>{ctx.items[id].brand}</p>
-<p>{ctx.items[id].category}</p>
-<p>{ctx.items[id].description}</p>
-<p>{ctx.items[id].discountPercentage}</p>
-<p>{ctx.items[id].images}</p>
-<p>{ctx.items[id].title}</p>
-<p>{ctx.items[id].stock}</p>
-<p>{ctx.items[id].rating}</p>
-<p>{ctx.items[id].price}</p>
-</div> */
-
-// <ul>
-// <li></li>
-// <li></li>
-// <li></li>
-// <li></li>
-// <li></li>
-// <li></li>
-// <li></li>
-// <li></li>
-// <li></li>
-// </ul>

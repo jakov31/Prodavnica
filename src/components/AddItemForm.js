@@ -3,7 +3,7 @@ import Kontext from "../store/context";
 
 const AddItemForm = () => {
   const ctx = useContext(Kontext);
-  const [naziv, setNaziv] = useState("");
+  const [title, settitle] = useState("");
   const [brend, setBrend] = useState("");
   const [kategorija, setKategorija] = useState("");
   const [opis, setOpis] = useState("");
@@ -12,8 +12,8 @@ const AddItemForm = () => {
   const [rejting, setRejting] = useState("");
   const [zalihe, setZalihe] = useState("");
 
-  const ocitavanjeNaziva = (event) => {
-    return setNaziv(event.target.value);
+  const ocitavanjeTitle = (event) => {
+    return settitle(event.target.value);
   };
   const ocitavanjeBrenda = (event) => {
     return setBrend(event.target.value);
@@ -40,23 +40,28 @@ const AddItemForm = () => {
   const dodajProizvodHandler = (event) => {
     event.preventDefault();
 
-    ctx.addItem({
-      brand: brend,
-      category: kategorija,
-      description: opis,
-      discountPercentage: popust,
-      id: Math.random().toString(),
-      price: cijena,
-      rating: rejting,
-      stock: zalihe,
-      title: naziv,
-    });
+    fetch("https://dummyjson.com/products/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        title: title,
+        brand: brend,
+        category: kategorija,
+        description: opis,
+        discountPercentage: popust,
+        price: cijena,
+        rating: rejting,
+        stock: zalihe,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => ctx.addItem(data));
   };
 
   return (
     <form onSubmit={dodajProizvodHandler}>
       <label htmlFor="naziv">Naziv proizvoda</label>
-      <input id="naziv" type="text" onChange={ocitavanjeNaziva} />
+      <input id="naziv" type="text" onChange={ocitavanjeTitle} />
       <br />
       <label htmlFor="brend">Brend</label>
       <input id="brend" type="text" onChange={ocitavanjeBrenda} />

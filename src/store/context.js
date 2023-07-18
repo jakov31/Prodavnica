@@ -1,4 +1,5 @@
 import react, { useState } from "react";
+import { useEffect } from "react";
 
 const Kontext = react.createContext({
   items: [],
@@ -11,9 +12,19 @@ const Kontext = react.createContext({
 export const KontextProvider = (props) => {
   const [items, setItems] = useState([]);
 
-  const loadItemsHandler = (items) => {
-    setItems(items);
-  };
+  useEffect(() => {
+    fetch("https://dummyjson.com/products")
+      .then((res) => res.json())
+      .then((data) => setItems(data.products));
+    // const ucitajPodatke = async () => {
+    //   const response = await fetch("https://dummyjson.com/products");
+    //   const data = await response.json();
+
+    //   setItems(data.products);
+    // };
+
+    // ucitajPodatke();
+  }, []);
 
   const removeItemHandler = (id) => {
     setItems((prevLista) => {
@@ -46,7 +57,6 @@ export const KontextProvider = (props) => {
     addItem: addItemHandler,
     removeItem: removeItemHandler,
     editItem: editItemHandler,
-    loadItems: loadItemsHandler,
   };
 
   return (
