@@ -1,0 +1,22 @@
+.lista {
+  list-style: none;
+  margin: 0 auto;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  background-color: white;
+  width: 50%;
+}
+
+.info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.dugmad {
+  display: flex;
+  justify-content: space-around;
+}
+
+.dugmad button {
+}
