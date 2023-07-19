@@ -35,12 +35,13 @@ export const KontextProvider = (props) => {
   const editItemHandler = (editedItem, id) => {
     setItems((prevLista) => {
       const existingItemIndex = prevLista.findIndex((item) => item.id === id);
-      // const existingItem = items[existingItemIndex]
 
-      let updatedItems = { ...prevLista };
-      prevLista[existingItemIndex] = editedItem;
+      let updatedList;
 
-      return updatedItems;
+      updatedList = [...prevLista];
+      updatedList[existingItemIndex] = editedItem;
+
+      return updatedList;
     });
   };
 

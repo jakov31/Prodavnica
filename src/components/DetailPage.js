@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Kontext from "../store/context";
+import Button from "../UI/Button";
 import stil from "./DetailPage.module.css";
 
 const DetailPage = () => {
@@ -15,7 +16,10 @@ const DetailPage = () => {
   return (
     <div className={stil.detail}>
       {DetailItem.map((item) => (
-        <div>
+        <div key={item.id}>
+          <div>
+            <img src={item.images[0]} alt="slika" />
+          </div>
           <div className={stil.stil}>
             <h4>Naziv:</h4>
             <p>{item.title}</p>
@@ -46,17 +50,17 @@ const DetailPage = () => {
           </div>
           <div className={stil.stil}>
             <h4>Cijena:</h4>
-            <p>{item.price}</p>
+            <p>{item.price}€</p>
           </div>
         </div>
       ))}
-      <button
+      <Button
         onClick={() => {
           navigate("/");
         }}
       >
         Go back
-      </button>
+      </Button>
     </div>
   );
 };

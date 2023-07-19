@@ -1,5 +1,7 @@
 import { useContext, useState } from "react";
 import Kontext from "../store/context";
+import Button from "../UI/Button";
+import stil from "./AddItemForm.module.css";
 
 const AddItemForm = () => {
   const ctx = useContext(Kontext);
@@ -59,32 +61,48 @@ const AddItemForm = () => {
   };
 
   return (
-    <form onSubmit={dodajProizvodHandler}>
-      <label htmlFor="naziv">Naziv proizvoda</label>
-      <input id="naziv" type="text" onChange={ocitavanjeTitle} />
-      <br />
-      <label htmlFor="brend">Brend</label>
-      <input id="brend" type="text" onChange={ocitavanjeBrenda} />
-      <br />
-      <label htmlFor="kategorija">Kategorija proizvoda</label>
-      <input id="kategorija" type="text" onChange={ocitavanjeKategorije} />
-      <br />
-      <label htmlFor="opis">Opis proizvoda</label>
-      <input id="opis" type="text" onChange={ocitavanjeOpisa} />
-      <br />
-      <label htmlFor="popust">Popust</label>
-      <input id="popust" type="number" onChange={ocitavanjePopusta} />
-      <br />
-      <label htmlFor="cijena">Cijena proizvoda</label>
-      <input id="cijena" type="number" onChange={ocitavanjeCijene} />
-      <br />
-      <label htmlFor="rejting">Rejting proizvoda</label>
-      <input id="rejting" type="number" onChange={ocitavanjeRejtinga} />
-      <br />
-      <label htmlFor="zalihe">Zalihe proizvoda</label>
-      <input id="zalihe" type="number" onChange={ocitavanjeZaliha} />
-      <br />
-      <button>+Dodaj</button>
+    <form onSubmit={dodajProizvodHandler} className={stil.addForm}>
+      <div>
+        <label htmlFor="naziv">Naziv proizvoda</label>
+        <input id="naziv" type="text" onChange={ocitavanjeTitle} />
+        <br />
+      </div>
+      <div>
+        <label htmlFor="brend">Brend</label>
+        <input id="brend" type="text" onChange={ocitavanjeBrenda} />
+        <br />
+      </div>
+      <div>
+        <label htmlFor="kategorija">Kategorija proizvoda</label>
+        <input id="kategorija" type="text" onChange={ocitavanjeKategorije} />
+        <br />
+      </div>
+      <div>
+        <label htmlFor="opis">Opis proizvoda</label>
+        <input id="opis" type="text" onChange={ocitavanjeOpisa} />
+        <br />
+      </div>
+      <div>
+        <label htmlFor="popust">Popust</label>
+        <input id="popust" type="number" onChange={ocitavanjePopusta} />
+        <br />
+      </div>
+      <div>
+        <label htmlFor="cijena">Cijena proizvoda</label>
+        <input id="cijena" type="number" onChange={ocitavanjeCijene} />
+        <br />
+      </div>
+      <div>
+        <label htmlFor="rejting">Rejting proizvoda</label>
+        <input id="rejting" type="number" onChange={ocitavanjeRejtinga} />
+        <br />
+      </div>
+      <div>
+        <label htmlFor="zalihe">Zalihe proizvoda</label>
+        <input id="zalihe" type="number" onChange={ocitavanjeZaliha} />
+        <br />
+      </div>
+      <Button>+Dodaj</Button>
     </form>
   );
 };

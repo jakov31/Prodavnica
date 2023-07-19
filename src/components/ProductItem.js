@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Kontext from "../store/context";
+import Button from "../UI/Button";
 
 import stil from "./ProductItem.module.css";
 
@@ -8,11 +9,15 @@ const ProductItem = (props) => {
   const ctx = useContext(Kontext);
 
   const deleteProduct = () => {
-    fetch(`https://dummyjson.com/products/${props.item.id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => ctx.removeItem(data.id));
+    if (props.item.id < 101) {
+      fetch(`https://dummyjson.com/products/${props.item.id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => ctx.removeItem(data.id));
+    } else {
+      ctx.removeItem(props.item.id);
+    }
   };
 
   let slika;
@@ -33,23 +38,16 @@ const ProductItem = (props) => {
       </div>
       <div className={stil.dugmad}>
         <Link to={`product/${props.item.id}`}>
-          <button>View Details</button>
+          <Button>View Details</Button>
         </Link>
         <Link to={`product/edit/${props.item.id}`}>
-          <button>Edit Product</button>
+          <Button>Edit Product</Button>
         </Link>
 
-        <button onClick={deleteProduct}>Obriši proizvod</button>
+        <Button onClick={deleteProduct}>Obriši proizvod</Button>
       </div>
     </li>
   );
 };
 
 export default ProductItem;
-
-// brand: brand,
-// category: category,
-// description: description,
-// discountPercentage: discountPercentage,
-// stock: stock,
-// rating: rating,
