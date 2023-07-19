@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Kontext from "../store/context";
+import stil from "./DetailPage.module.css";
 
 const DetailPage = () => {
   const { id } = useParams();
@@ -12,18 +13,41 @@ const DetailPage = () => {
   );
 
   return (
-    <div>
+    <div className={stil.detail}>
       {DetailItem.map((item) => (
         <div>
-          <p>{item.price}</p>
-          <p>{item.title}</p>
-          <p>{item.brand}</p>
-          <p>{item.category} </p>
-          <p>{item.description} </p>
-          <p>{item.discountPercentage} </p>
-          <p>{item.price} </p>
-          <p>{item.rating} </p>
-          <p>{item.stock} </p>
+          <div className={stil.stil}>
+            <h4>Naziv:</h4>
+            <p>{item.title}</p>
+          </div>
+          <div className={stil.stil}>
+            <h4>Brend:</h4>
+            <p>{item.brand}</p>
+          </div>
+          <div className={stil.stil}>
+            <h4>Kategorija:</h4>
+            <p>{item.category} </p>
+          </div>
+          <div className={stil.stil}>
+            <h4>Opis:</h4>
+            <p>{item.description} </p>
+          </div>
+          <div className={stil.stil}>
+            <h4>Popust:</h4>
+            <p>{item.discountPercentage} </p>
+          </div>
+          <div className={stil.stil}>
+            <h4>Rejting:</h4>
+            <p>{item.rating} </p>
+          </div>
+          <div className={stil.stil}>
+            <h4>Zalihe:</h4>
+            <p>{item.stock} </p>
+          </div>
+          <div className={stil.stil}>
+            <h4>Cijena:</h4>
+            <p>{item.price}</p>
+          </div>
         </div>
       ))}
       <button

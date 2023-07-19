@@ -16,14 +16,6 @@ export const KontextProvider = (props) => {
     fetch("https://dummyjson.com/products")
       .then((res) => res.json())
       .then((data) => setItems(data.products));
-    // const ucitajPodatke = async () => {
-    //   const response = await fetch("https://dummyjson.com/products");
-    //   const data = await response.json();
-
-    //   setItems(data.products);
-    // };
-
-    // ucitajPodatke();
   }, []);
 
   const removeItemHandler = (id) => {

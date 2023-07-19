@@ -1,16 +1,32 @@
 .lista {
   list-style: none;
-  margin: 0 auto;
+  margin: 1rem auto;
   padding: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
   background-color: white;
   width: 50%;
+  height: auto;
 }
 
 .info {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.opis {
+  height: 20%;
+}
+
+.opis h2,
+p {
+  margin: 0;
+  size: 2rem;
+}
+
+.slika {
+  height: 80%;
 }
 
 .dugmad {
@@ -19,4 +35,11 @@
 }
 
 .dugmad button {
+  padding: 0.5rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+.dugmad button:hover {
+  cursor: pointer;
 }

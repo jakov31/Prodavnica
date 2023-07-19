@@ -15,11 +15,18 @@ const ProductItem = (props) => {
       .then((data) => ctx.removeItem(data.id));
   };
 
+  let slika;
+  if (props.item.images) {
+    slika = props.item.images[0];
+  } else {
+    slika = "";
+  }
+
   return (
     <li className={stil.lista}>
       <div className={stil.info}>
-        <div>slika</div>
-        <div>
+        <img className={stil.slika} src={slika} alt="slika" />
+        <div className={stil.opis}>
           <h2>{props.item.title}</h2>
           <p>{props.item.price}€</p>
         </div>
