@@ -26,10 +26,7 @@ export const KontextProvider = (props) => {
   };
 
   const addItemHandler = (item) => {
-    setItems((prevLista) => {
-      const produzenaLista = prevLista.concat(item);
-      return produzenaLista;
-    });
+    setItems((prevLista) => [...prevLista, item]);
   };
 
   const editItemHandler = (editedItem, id) => {
