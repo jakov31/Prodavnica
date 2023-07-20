@@ -27,6 +27,7 @@ p {
 
 .slika {
   height: 80%;
+  object-fit: contain;
 }
 
 .dugmad {

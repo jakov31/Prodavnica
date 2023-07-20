@@ -11,9 +11,9 @@ const EditItemForm = () => {
     (item) => item.id.toString() === id.toString()
   );
 
-  const [naziv, setNaziv] = useState(EditingItem.title);
-  const [cijena, setCijena] = useState(EditingItem.price);
-  const [opis, setOpis] = useState(EditingItem.description);
+  const [naziv, setNaziv] = useState(EditingItem[0].title);
+  const [cijena, setCijena] = useState(EditingItem[0].price);
+  const [opis, setOpis] = useState(EditingItem[0].description);
 
   const citacNaziva = (event) => {
     setNaziv(event.target.value);
@@ -43,34 +43,26 @@ const EditItemForm = () => {
     navigate("/");
   };
 
+  console.log();
+
   return (
     <form onSubmit={editProductHandler} className={stil.addForm}>
       <label htmlFor="naziv">Naziv</label>
       <div>
-        <input
-          id="naziv"
-          type="text"
-          value={EditingItem.title}
-          onChange={citacNaziva}
-        />
+        <input id="naziv" type="text" value={naziv} onChange={citacNaziva} />
       </div>
       <div>
         <label htmlFor="cijena">Cijena</label>
         <input
           id="cijena"
           type="number"
-          value={EditingItem.price}
+          value={cijena}
           onChange={citacCijene}
         />
       </div>
       <div>
         <label htmlFor="opis">Opis</label>
-        <input
-          id="opis"
-          type="text"
-          value={EditingItem.description}
-          onChange={citacOpisa}
-        />
+        <input id="opis" type="text" value={opis} onChange={citacOpisa} />
       </div>
 
       <Button>Edit product</Button>

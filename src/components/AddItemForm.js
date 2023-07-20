@@ -58,48 +58,92 @@ const AddItemForm = () => {
     })
       .then((res) => res.json())
       .then((data) => ctx.addItem(data));
+
+    settitle("");
+    setBrend("");
+    setKategorija("");
+    setOpis("");
+    setPopust("");
+    setCijena("");
+    setRejting("");
+    setZalihe("");
   };
 
   return (
     <form onSubmit={dodajProizvodHandler} className={stil.addForm}>
       <div>
         <label htmlFor="naziv">Naziv proizvoda</label>
-        <input id="naziv" type="text" onChange={ocitavanjeTitle} />
+        <input
+          value={title}
+          id="naziv"
+          type="text"
+          onChange={ocitavanjeTitle}
+        />
         <br />
       </div>
       <div>
         <label htmlFor="brend">Brend</label>
-        <input id="brend" type="text" onChange={ocitavanjeBrenda} />
+        <input
+          value={brend}
+          id="brend"
+          type="text"
+          onChange={ocitavanjeBrenda}
+        />
         <br />
       </div>
       <div>
         <label htmlFor="kategorija">Kategorija proizvoda</label>
-        <input id="kategorija" type="text" onChange={ocitavanjeKategorije} />
+        <input
+          value={kategorija}
+          id="kategorija"
+          type="text"
+          onChange={ocitavanjeKategorije}
+        />
         <br />
       </div>
       <div>
         <label htmlFor="opis">Opis proizvoda</label>
-        <input id="opis" type="text" onChange={ocitavanjeOpisa} />
+        <input value={opis} id="opis" type="text" onChange={ocitavanjeOpisa} />
         <br />
       </div>
       <div>
         <label htmlFor="popust">Popust</label>
-        <input id="popust" type="number" onChange={ocitavanjePopusta} />
+        <input
+          value={popust}
+          id="popust"
+          type="number"
+          onChange={ocitavanjePopusta}
+        />
         <br />
       </div>
       <div>
         <label htmlFor="cijena">Cijena proizvoda</label>
-        <input id="cijena" type="number" onChange={ocitavanjeCijene} />
+        <input
+          value={cijena}
+          id="cijena"
+          type="number"
+          onChange={ocitavanjeCijene}
+        />
         <br />
       </div>
       <div>
         <label htmlFor="rejting">Rejting proizvoda</label>
-        <input id="rejting" type="number" onChange={ocitavanjeRejtinga} />
+        <input
+          value={rejting}
+          id="rejting"
+          type="number"
+          onChange={ocitavanjeRejtinga}
+        />
         <br />
       </div>
       <div>
         <label htmlFor="zalihe">Zalihe proizvoda</label>
-        <input id="zalihe" type="number" onChange={ocitavanjeZaliha} />
+        <input
+          value={zalihe}
+          id="zalihe"
+          type="number"
+          onChange={ocitavanjeZaliha}
+        />
         <br />
       </div>
       <Button>+Dodaj</Button>

@@ -21,25 +21,31 @@ function App() {
 
   const lista = items.slice(0, brojac);
 
+  const itemsLenght = items.length;
+
   const sadrzaj = (
     <div className={stil.sadrzaj}>
-      <ul>
-        {lista.map((item) => (
-          <ProductItem key={item.id} item={item} />
-        ))}
-      </ul>
-      <div className={stil.dugmad}>
-        <Link to="/product/add">
-          <Button>Dodaj proizvod</Button>
-        </Link>
-        {brojac < items.length && (
-          <Button onClick={brojacHandler}>Učitaj još...</Button>
-        )}
-      </div>
+      {itemsLenght === 0 ? (
+        <div className={stil.loader}></div>
+      ) : (
+        <div className={stil.lista}>
+          <ul>
+            {lista.map((item) => (
+              <ProductItem key={item.id} item={item} />
+            ))}
+          </ul>
+          <div className={stil.dugmad}>
+            <Link to="/product/add">
+              <Button>Dodaj proizvod</Button>
+            </Link>
+            {brojac < items.length && (
+              <Button onClick={brojacHandler}>Učitaj još...</Button>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
-
-  // const loadingSpiner = <div className={stil.loader}></div>;
 
   return (
     <Routes>

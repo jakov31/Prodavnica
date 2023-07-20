@@ -17,7 +17,7 @@ const DetailPage = () => {
     <div className={stil.detail}>
       {DetailItem.map((item) => (
         <div key={item.id}>
-          <div>
+          <div className={stil.imgkont}>
             <img src={item.images[0]} alt="slika" />
           </div>
           <div className={stil.stil}>
