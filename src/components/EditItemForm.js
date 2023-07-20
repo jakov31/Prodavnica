@@ -28,17 +28,21 @@ const EditItemForm = () => {
   const editProductHandler = (event) => {
     event.preventDefault();
 
-    fetch(`https://dummyjson.com/products/${id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        title: naziv,
-        price: cijena,
-        description: opis,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => ctx.editItem(data, +id));
+    if (id < 101) {
+      fetch(`https://dummyjson.com/products/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title: naziv,
+          price: cijena,
+          description: opis,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => ctx.editItem(data, +id));
+    } else {
+      ctx.editItem({ title: naziv, price: cijena, description: opis }, +id);
+    }
 
     navigate("/");
   };
