@@ -79,6 +79,7 @@ const AddItemForm = () => {
           id="naziv"
           type="text"
           onChange={ocitavanjeTitle}
+          required
         />
         <br />
       </div>
@@ -124,6 +125,7 @@ const AddItemForm = () => {
           id="cijena"
           type="number"
           onChange={ocitavanjeCijene}
+          required
         />
         <br />
       </div>
@@ -144,6 +146,7 @@ const AddItemForm = () => {
           id="zalihe"
           type="number"
           onChange={ocitavanjeZaliha}
+          required
         />
         <br />
       </div>
