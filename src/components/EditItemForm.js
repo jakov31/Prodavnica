@@ -69,7 +69,7 @@ const EditItemForm = () => {
         <input id="opis" type="text" value={opis} onChange={citacOpisa} />
       </div>
 
-      <Button>Edit product</Button>
+      <Button  className={stil.edit} >Edit product</Button>
     </form>
   );
 };

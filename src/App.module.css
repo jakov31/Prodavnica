@@ -25,6 +25,29 @@
   border-radius: 8px;
 }
 
+.dodaj {
+  color: rgb(24, 39, 0);
+  border-color:  rgb(60, 96, 6);
+}
+
+.dodaj:hover {
+  background-color: rgb(60, 96, 6);
+  color: white;
+  border-color: rgb(53, 53, 253);
+}
+
+.ucitaj {
+  color: rgba(97, 5, 104, 0.998);
+  border-color:  rgb(96, 6, 70);
+}
+
+.ucitaj:hover {
+  background-color: rgb(96, 6, 81);
+  color: white;
+}
+
+
+
 .loader {
   margin: auto;
   border: 16px solid #f3f3f3; /* Light grey */

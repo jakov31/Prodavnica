@@ -150,7 +150,7 @@ const AddItemForm = () => {
         />
         <br />
       </div>
-      <Button>+Dodaj</Button>
+      <Button className={stil.dodajdugme}>+Dodaj</Button>
     </form>
   );
 };

@@ -55,6 +55,7 @@ const DetailPage = () => {
         </div>
       ))}
       <Button
+       className={stil.details}
         onClick={() => {
           navigate("/");
         }}

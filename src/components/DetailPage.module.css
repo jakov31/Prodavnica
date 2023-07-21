@@ -20,3 +20,13 @@
 .stil h4 {
   margin: 0;
 }
+
+
+.details {
+  color: rgb(0, 8, 39);
+  border-color: rgb(47, 137, 255);
+}
+.details:hover {
+  background-color: rgb(6, 51, 96);
+  color: white;
+}

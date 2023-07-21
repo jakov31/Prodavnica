@@ -11,3 +11,14 @@
   display: flex;
   flex-direction: column;
 }
+
+.dodajdugme {
+  color: rgb(24, 39, 0);
+  border-color:  rgb(60, 96, 6);
+}
+
+.dodajdugme:hover {
+  background-color: rgb(60, 96, 6);
+  color: white;
+  border-color: rgb(53, 53, 253);
+}
