@@ -38,13 +38,13 @@ const ProductItem = (props) => {
       </div>
       <div className={stil.dugmad}>
         <Link to={`product/${props.item.id}`}>
-          <Button>View Details</Button>
+          <Button className={stil.details}>View Details</Button>
         </Link>
         <Link to={`product/edit/${props.item.id}`}>
-          <Button>Edit Product</Button>
+          <Button className={stil.edit}>Edit Product</Button>
         </Link>
 
-        <Button onClick={deleteProduct}>Obriši proizvod</Button>
+        <Button onClick={deleteProduct} className={stil.delete}>Obriši proizvod</Button>
       </div>
     </li>
   );

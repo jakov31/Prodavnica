@@ -41,3 +41,31 @@ p {
   height: auto;
   margin: 0;
 }
+
+.edit {
+  color: rgb(24, 39, 0);
+  border-color:  rgb(60, 96, 6);
+}
+.edit:hover {
+  background-color: rgb(60, 96, 6);
+  color: white;
+}
+
+.details {
+  color: rgb(0, 8, 39);
+  border-color: rgb(47, 137, 255);
+}
+.details:hover {
+  background-color: rgb(6, 51, 96);
+  color: white;
+}
+
+.delete {
+  color: rgb(152, 30, 30);
+  border-color: rgb(209, 0, 0);
+}
+
+.delete:hover {
+  background-color: rgb(182, 20, 20);
+  color: white;
+}
