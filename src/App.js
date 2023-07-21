@@ -36,7 +36,7 @@ function App() {
           </ul>
           <div className={stil.dugmad}>
             <Link to="/product/add">
-              <Button>Dodaj proizvod</Button>
+              <Button>+Dodaj proizvod</Button>
             </Link>
             {brojac < items.length && (
               <Button onClick={brojacHandler}>Učitaj još...</Button>
