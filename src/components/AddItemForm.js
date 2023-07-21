@@ -54,6 +54,7 @@ const AddItemForm = () => {
         price: cijena,
         rating: rejting,
         stock: zalihe,
+        images: ""
       }),
     })
       .then((res) => res.json())
