@@ -47,8 +47,6 @@ const EditItemForm = () => {
     navigate("/");
   };
 
-  console.log();
-
   return (
     <form onSubmit={editProductHandler} className={stil.addForm}>
       <label htmlFor="naziv">Naziv</label>

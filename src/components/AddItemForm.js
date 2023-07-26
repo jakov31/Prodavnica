@@ -1,10 +1,12 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom"
 import Kontext from "../store/context";
 import Button from "../UI/Button";
 import stil from "./AddItemForm.module.css";
 
 const AddItemForm = () => {
   const ctx = useContext(Kontext);
+  const navigate = useNavigate();
   const [title, settitle] = useState("");
   const [brend, setBrend] = useState("");
   const [kategorija, setKategorija] = useState("");
@@ -68,6 +70,7 @@ const AddItemForm = () => {
     setCijena("");
     setRejting("");
     setZalihe("");
+    navigate("/")
   };
 
   return (
